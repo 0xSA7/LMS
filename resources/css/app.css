@@ -1,0 +1,8 @@
+/* Correct way to import Bootstrap */
+@import 'bootstrap/dist/css/bootstrap.css';
+
+/* Import DataTables Bootstrap 4 CSS */
+@import 'datatables.net-bs4/css/dataTables.bootstrap4.css';
+
+/* Import Main Styles */
+@import './sb-admin-2.min.css';
