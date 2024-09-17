@@ -16,7 +16,7 @@
     </head>
     <body>
         <!-- content -->
-        @yield('test')
+        <!-- @yield('test') -->
         
         <!-- Include the compiled JS file -->
         @vite('resources/js/app.js')

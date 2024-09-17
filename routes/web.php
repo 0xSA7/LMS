@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome');
+Route::view('/', 'app');
 
-Route::prefix('/test')->name('test.')->group(function () {
-    Route::view('/table', 'test.table')->name('table');
+Route::prefix('/dashboard')->name('dashboard')->group(function () {
+    Route::get('', function() {
+        return view('dashboard');
+    });
 });
