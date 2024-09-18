@@ -4,6 +4,7 @@ use App\Http\Controllers\admin;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\studentController;
 use App\Http\Controllers\auth;
+use App\Http\Controllers\Student\studentController as StudentStudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,8 +29,16 @@ Route::prefix('admin')->group(function(){
         });
     });
 });
-Route::get('/',[auth::class , 'index']);
+
+Route::get('createcourse',function(){
+   return view('instructor.create-course');
+});
+Route::get('/',[auth::class , 'showingLoginForm']);
 Route::get('forgotpassword',[auth::class , 'forgotPassword']);
 Route::get('/register', [auth::class , 'register']);
 Route::post('/register', [auth::class , 'store']);
+Route::get('/student',[StudentStudentController::class, 'index']);
+Route::post('/logout', [auth::class , 'destroy']);
+Route::post('/login', [auth::class , 'login']);
+
 

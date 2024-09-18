@@ -66,14 +66,15 @@
             <h4 class="mb-1">Welcome to sneat! 👋</h4>
             <p class="mb-6">Please sign-in to your account and start the adventure</p>
 
-            <form id="formAuthentication" class="mb-6" action="index.html">
+            <form id="formAuthentication" class="mb-6" method="POST" action="/login">
+              @csrf
               <div class="mb-6">
                 <label for="email" class="form-label">Email or Username</label>
                 <input
                   type="text"
                   class="form-control"
                   id="email"
-                  name="email-username"
+                  name="email"
                   placeholder="Enter your email or username"
                   autofocus />
               </div>
@@ -126,7 +127,8 @@
       href="https://themeselection.com/item/sneat-dashboard-pro-bootstrap/"
       target="_blank"
       class="btn btn-danger btn-buy-now"
-      >Upgrade to Pro</a
+      >Be instructor on our platform</a
+
     >
   </div>
 @endsection
