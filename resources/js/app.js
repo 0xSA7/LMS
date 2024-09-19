@@ -1,3 +1,7 @@
+// Import Fontawesome Icons
+import '@fortawesome/fontawesome-free/js/all.min';
+
+// Import Bootstrap
 import 'jquery';
 import 'bootstrap';
 import 'jquery.easing';

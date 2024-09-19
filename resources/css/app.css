@@ -1,3 +1,6 @@
+/* Import Fontawesome Icons */
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
 /* Correct way to import Bootstrap */
 @import 'bootstrap/dist/css/bootstrap.css';
 
