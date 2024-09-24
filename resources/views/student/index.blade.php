@@ -2,7 +2,7 @@
 @extends('layouts.main')
 
 @section('aside-nav')
-  @section('table')
-    <h1>home</h1>
-  @endsection
+@section('table')
+<h1>home</h1>
+@endsection
 @endsection

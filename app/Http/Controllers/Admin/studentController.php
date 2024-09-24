@@ -8,13 +8,15 @@ use Illuminate\Http\Request;
 
 class studentController extends Controller
 {
-    public function index(){
-        $students = User::with('courses_by_student')->students()->get();
-        $studentsCount = User::students()->count();
-        return view('admin.index',compact('students','studentsCount')) ;
-    }
-    public function edit($id){
-        $stuId = $id ;
-        return view('admin.edit',['id'=>$stuId]) ;
-    }
+  public function index()
+  {
+    $students = User::with('courses_by_student')->students()->get();
+    $studentsCount = User::students()->count();
+    return view('admin.index', compact('students', 'studentsCount'));
+  }
+  public function edit($id)
+  {
+    $stuId = $id;
+    return view('admin.edit', ['id' => $stuId]);
+  }
 }

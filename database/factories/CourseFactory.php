@@ -12,27 +12,27 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class CourseFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition()
-    {
-        return [
-           'title' => $this->faker->word(),
-           'description' => $this->faker->sentence(random_int(5, 10)),
-           'instructor_id' => User::factory()->state(['role'=>'instructor']),
-           'created_at' => now(), 
-        ];
-    }
-    static Course $course ;
+  /**
+   * Define the model's default state.
+   *
+   * @return array<string, mixed>
+   */
+  public function definition()
+  {
+    return [
+      'title' => $this->faker->word(),
+      'description' => $this->faker->sentence(random_int(5, 10)),
+      'instructor_id' => User::factory()->state(['role' => 'instructor']),
+      'created_at' => now(),
+    ];
+  }
+  static Course $course;
 
-    /**
-     * Define actions to take after creating a course.
-     *
-     * @param  \App\Models\Course  $course
-     * @return void
-     */
-   
+  /**
+   * Define actions to take after creating a course.
+   *
+   * @param  \App\Models\Course  $course
+   * @return void
+   */
+
 }
