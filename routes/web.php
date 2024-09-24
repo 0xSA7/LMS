@@ -22,9 +22,19 @@ Route::prefix('admin')->group(function () {
   });
 });
 
+Route::prefix('student')->group(function () {
+  Route::controller(StudentController::class)->group(function () {
+    Route::get('/', HomeController::class);
+    Route::prefix('students')->group(function () {
+      Route::get('/', 'index');
+    });
+  });
+});
+
 Route::get('createcourse', function () {
   return view('instructor.create-course');
 });
+
 Route::get('/', [index::class, 'index']);
 Route::get('/login', [auth::class, 'showingLoginForm']);
 Route::get('forgotpassword', [auth::class, 'forgotPassword']);

@@ -53,10 +53,10 @@ class auth extends Controller
         return redirect('/admin/students');
       } else if ($user->role == 'instructor') {
         request()->session()->regenerate();
-        return redirect('/student');
+        return redirect('/instructor');
       } else {
         request()->session()->regenerate();
-        return redirect('/student');
+        return redirect('/');
       }
     }
     return dd('error');
@@ -64,7 +64,6 @@ class auth extends Controller
   public function showProfile()
   {
     $user = FacadesAuth::user();
-    dd($user);
     $student_courses = User::find($user->id)->courses_by_student;
     return view('layouts.profile', compact('user', 'student_courses'));
   }
