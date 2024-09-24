@@ -13,7 +13,8 @@
 
 <body class="@yield('class', '')" id="@yield('id', '')">
   <!-- Page Wrapper -->
-  @yield('content'):@hasSection('content')
+  @hasSection('content')
+    @yield('content')
   @else
     <h1 class="text-center pt-5">Welcome from the main end point.</h1>
   @endif

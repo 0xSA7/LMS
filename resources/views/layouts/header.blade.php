@@ -1,7 +1,7 @@
 <!-- Topbar -->
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-  <h1 class="h4 m-0 d-md-none">LMS</h1>
+  <h1 class="h4 m-0">LMS</h1>
 
   <!-- Topbar Navbar -->
   <ul class="navbar-nav ml-auto">
