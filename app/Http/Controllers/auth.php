@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Faker\Provider\bg_BG\PhoneNumber;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
@@ -41,6 +44,10 @@ class auth extends Controller
         $validated_user = $request->validate([
             'email' => ['required','email'],
             'password' => ['required'],
+        ],[
+            'email.required' => 'Email is required',
+            'email.email' => 'Email or password is incorrect',
+            'password.required' => 'Password is required',            
         ]);
         // dd($validated_user);
         if(FacadesAuth::attempt($validated_user)){
@@ -59,7 +66,30 @@ class auth extends Controller
        
         return dd('error') ;
     }
+    public function showProfile(){
+        $user = FacadesAuth::user();
+        return view('layouts.profile', compact('user'));
+    }
+    public function updateProfile(Request $request){
+       
 
+        $user = FacadesAuth::user();
+        $userM = User::find($user->id);
+        $validated_user =$request->validate([
+            'name' => ['required'],
+            'email' => ['required'],
+            'phone' => 'required|regex:/(01)[0-9]{9}/',
+        ]);
+
+        $userM['name'] = $validated_user['name'] ;
+        $userM['email'] = $validated_user['email'];
+        $userM['phone'] = $validated_user['phone'] ;
+
+        $userM->save();
+
+        return redirect('profile');
+        
+    }
     public function destroy(){
         
         FacadesAuth::logout();

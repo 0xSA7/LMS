@@ -1,8 +1,8 @@
 @extends('layouts.assetsLinks')
-@extends('layouts.main')
+
 {{-- @dd($students) --}}
-@section('aside-nav')
-@section('table')
+
+@section('content')
     <div class="card">
         <h5 class="d-flex align-items-center justify-content-between card-header">ALL Students <span >Count: {{$studentsCount}}</span></h5>
         <div class="table-responsive text-nowrap">
@@ -67,6 +67,5 @@
     </div>
 @endsection
 
-@endsection
 
 <!-- build:js assets/vendor/js/core.js -->

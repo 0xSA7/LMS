@@ -20,7 +20,7 @@ class CourseFactory extends Factory
     public function definition()
     {
         return [
-           'title' => $this->faker->company,
+           'title' => $this->faker->word(),
            'description' => $this->faker->sentence(random_int(5, 10)),
            'instructor_id' => User::factory()->state(['role'=>'instructor']),
            'created_at' => now(), 
