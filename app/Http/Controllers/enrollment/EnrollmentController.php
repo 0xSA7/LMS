@@ -9,16 +9,19 @@ use Illuminate\Support\Facades\Auth;
 
 class EnrollmentController extends Controller
 {
-  public function store($courseId)
+  public function store($courseID)
   {
-    $course = Course::find($courseId);
-    if (!$course) {
-      return redirect()->back()->with('error', 'Course not found!');
-    }
     Enrollment::create([
       'student_id' => Auth::User()->id,
-      'course_id' => $courseId
+      'course_id' => $courseID
     ]);
+    return redirect()->back();
+  }
+  public function destroy($courseID)
+  {
+    Enrollment::where('student_id', Auth::User()->id)
+              ->where('course_id', $courseID)
+              ->delete();
     return redirect()->back();
   }
 }

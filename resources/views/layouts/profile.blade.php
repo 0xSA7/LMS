@@ -90,10 +90,10 @@
                             <div class="cours-bx">
                               <div class="action-box">
                               <img src="{{ asset('assets/images/courses/pic1.jpg') }}" alt="">
-                              <a href="{{ route('coursedetails', $course->id) }}" class="btn">Read More</a>
+                              <a href="{{ route('courses.courseDetails', $course->id) }}" class="btn">Read More</a>
                               </div>
                               <div class="info-bx text-center">
-                              <h5><a href="{{ route('coursedetails', $course->id) }}">{{ $course->title }}</a>
+                              <h5><a href="{{ route('courses.courseDetails', $course->id) }}">{{ $course->title }}</a>
                               </h5>
                               <span>Programming</span>
                               </div>

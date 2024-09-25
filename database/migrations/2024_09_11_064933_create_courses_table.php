@@ -16,6 +16,7 @@ return new class extends Migration {
       $table->id();
       $table->string('title');
       $table->text('description');
+      $table->enum('category', ['programming', 'medical', 'accounting', 'others']);
       $table->unsignedBigInteger('instructor_id');
       $table->foreign('instructor_id')->references('id')->on('users')->onDelete('cascade');
       $table->timestamps();

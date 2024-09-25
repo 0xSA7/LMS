@@ -21,7 +21,8 @@ class CourseFactory extends Factory
   {
     return [
       'title' => $this->faker->word(),
-      'description' => $this->faker->sentence(random_int(5, 10)),
+      'description' => $this->faker->sentence(random_int(20, 100)),
+      'category' => fake()->randomElement(['programming', 'medical', 'accounting', 'others']),
       'instructor_id' => User::factory()->state(['role' => 'instructor']),
       'created_at' => now(),
     ];

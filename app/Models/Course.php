@@ -8,6 +8,12 @@ class Course extends Model
 {
   use HasFactory;
 
+  const CATEGORIES = [
+    'programming',
+    'medical',
+    'accounting',
+    'others'
+  ];
   public function instructor()
   {
     return $this->belongsTo(User::class, 'instructor_id');

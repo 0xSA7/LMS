@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\RedirectResponse;
+use App\Models\Course;
+use Illuminate\Contracts\View\View;
 
 class HomeController extends Controller
 {
@@ -12,8 +13,9 @@ class HomeController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function __invoke(): RedirectResponse
+  public function __invoke(): View
   {
-    return redirect('/');
+    $courses = Course::all();
+    return view('index', compact('courses'));
   }
 }

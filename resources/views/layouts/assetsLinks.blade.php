@@ -116,7 +116,7 @@
         <div class="container clearfix">
           <!-- Header Logo ==== -->
           <div class="menu-logo">
-            <a href="/"><img src="assets/images/logo.png" alt="EduChamp Logo"></a>
+            <a href="/"><img src="{{asset('assets/images/logo.png')}}" alt="EduChamp Logo"></a>
           </div>
           <!-- Mobile Nav Button ==== -->
           <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -151,7 +151,7 @@
           <!-- Navigation Menu ==== -->
           <div class="menu-links navbar-collapse collapse justify-content-center" id="menuDropdown">
             <div class="menu-logo">
-              <a href="index.html"><img src="assets/images/logo.png" alt=""></a>
+              <a href="index.html"><img src="{{asset('assets/images/logo.png')}}" alt=""></a>
             </div>
             <ul class="nav navbar-nav">
               <li class="active"><a href="/">Home</a></li>
@@ -162,7 +162,7 @@
                     <ul>
                       <!-- to be cont... -->
                       <li><a href="{{ route('courses') }}">Courses </a></li>
-                      <li><a href="#">Courses Details</a></li>
+                      <li><a href="{{route('courses.courseDetails', 1)}}">Courses Details</a></li>
                       <li><a href="#">Instructor Profile</a></li>
                     </ul>
                   </li>

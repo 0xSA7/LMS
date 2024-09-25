@@ -40,7 +40,7 @@ Route::get('createcourse', function () {
 });
 
 
-Route::get('/', [index::class, 'index']);
+Route::get('/', HomeController::class);
 Route::get('/login', [auth::class, 'showingLoginForm']);
 Route::get('forgotpassword', [auth::class, 'forgotPassword']);
 Route::get('/register', [auth::class, 'register']);
@@ -53,10 +53,10 @@ Route::post('/profile', [auth::class, 'updateProfile'])->name('updateProfile');
 
 
 Route::prefix('courses')->group(function () {
-  Route::controller(courseController::class)->group(function () {
-    Route::get('/', 'index')->name('courses');
-    Route::get('/coursedetails/{id}', 'show')->name('coursedetails');
-    // Route::post('/coursedetails/{id}','enroll')->name('courseEnroll');
+  Route::controller(courseController::class)->name('courses')->group(function () {
+    Route::get('/', 'index')->name('');
+    Route::get('/courseDetails/{id}', 'show')->name('.courseDetails');
   });
-  Route::post('/coursedetails/{id}', [EnrollmentController::class, 'store'])->name('courseEnroll');
+  Route::post('/courseDetails/{id}', [EnrollmentController::class, 'store'])->name('courseEnroll');
+  Route::delete('/courseDetails/{id}', [EnrollmentController::class, 'destroy'])->name('courseUnEnroll');
 });
