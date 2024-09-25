@@ -116,7 +116,7 @@
         <div class="container clearfix">
           <!-- Header Logo ==== -->
           <div class="menu-logo">
-            <a href="/"><img src="{{asset('assets/images/logo.png')}}" alt="EduChamp Logo"></a>
+            <a href="/"><img src="assets/images/logo.png" alt="EduChamp Logo"></a>
           </div>
           <!-- Mobile Nav Button ==== -->
           <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
