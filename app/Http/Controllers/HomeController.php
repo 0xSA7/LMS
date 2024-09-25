@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class HomeController extends Controller
 {
@@ -13,8 +12,8 @@ class HomeController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function __invoke(): View
+  public function __invoke(): RedirectResponse
   {
-    return view('admin.home');
+    return redirect('/');
   }
 }

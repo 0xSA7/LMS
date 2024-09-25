@@ -59,7 +59,7 @@ class auth extends Controller
         return redirect('/');
       }
     }
-    return dd('error');
+    return redirect()->back();
   }
   public function showProfile()
   {

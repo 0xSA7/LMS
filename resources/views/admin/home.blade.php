@@ -1,5 +1,4 @@
 @extends('layouts.assetsLinks')
-@extends('layouts.main')
 
 @section('aside-nav')
 @section('table')
