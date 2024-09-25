@@ -62,40 +62,50 @@
         <div class="row d-flex justify-content-between">
           <div class="topbar-left">
             <ul>
-              <li><a href="faq-1.html"><i class="fa fa-question-circle"></i>Ask a Question</a></li>
-              <li><a href="javascript:;"><i class="fa fa-envelope-o"></i>Support@website.com</a></li>
+              <li>
+                <a href="#">
+                  <i class="fa fa-question-circle"></i>Ask a Question
+                </a>
+              </li>
+              <li>
+                <a href="mailto:support@website.com">
+                  <i class="fa fa-envelope-o"></i>Support@website.com
+                </a>
+              </li>
             </ul>
           </div>
           <div class="topbar-right">
-            <ul>
+            <ul class="align-items-start">
               <li>
                 <select class="header-lang-bx">
                   <option data-icon="flag flag-uk">English UK</option>
                   <option data-icon="flag flag-us">English US</option>
                 </select>
               </li>
+
               @guest
-          <li><a href="/login">Login</a></li>
-          <li><a href="/register">Register</a></li>
-        @endguest
+              <li><a href="/login">Login</a></li>
+              <li><a href="/register">Register</a></li>
+              @endguest
+              
               @auth
-          <!-- Avatar -->
-          <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle"
-            height="10" style="width: 30px; height:30px ;" alt="Avatar" loading="lazy" />
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item " href="/profile">My Profile</a>
-            <a class="dropdown-item " href="#">settings</a>
-            <form action="/logout" method="POST">
-            @csrf
-            <button type="submit" class="dropdown-item  btn-danger">Logout</button>
-            </form>
-          </div>
-          </li>
-        @endauth
+              <!-- Avatar -->
+              <li class="nav-item dropdown">
+                <!-- to be cont... -->
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle" height="10" style="width: 30px; height:30px ;" alt="Avatar" loading="lazy" />
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item " href="/profile">My Profile</a>
+                  <a class="dropdown-item " href="#">settings</a>
+                  <form action="/logout" method="POST">
+                    @csrf
+                    <button type="submit" class="dropdown-item  btn-danger">Logout</button>
+                  </form>
+                </div>
+              </li>
+              @endauth
+
             </ul>
           </div>
         </div>
@@ -106,12 +116,10 @@
         <div class="container clearfix">
           <!-- Header Logo ==== -->
           <div class="menu-logo">
-            <a href="/"><img src="assets/images/logo.png" alt=""></a>
+            <a href="/"><img src="assets/images/logo.png" alt="EduChamp Logo"></a>
           </div>
           <!-- Mobile Nav Button ==== -->
-          <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse"
-            data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false"
-            aria-label="Toggle navigation">
+          <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span></span>
             <span></span>
             <span></span>
@@ -121,12 +129,14 @@
             <div class="secondary-inner">
               <ul>
                 <li><a href="javascript:;" class="btn-link"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="javascript:;" class="btn-link"><i class="fa fa-google-plus"></i></a>
-                </li>
+                <li><a href="javascript:;" class="btn-link"><i class="fa fa-google-plus"></i></a></li>
                 <li><a href="javascript:;" class="btn-link"><i class="fa fa-linkedin"></i></a></li>
                 <!-- Search Button ==== -->
-                <li class="search-btn"><button id="quik-search-btn" type="button" class="btn-link"><i
-                      class="fa fa-search"></i></button></li>
+                <li class="search-btn">
+                  <button id="quik-search-btn" type="button" class="btn-link">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </li>
               </ul>
             </div>
           </div>
@@ -139,99 +149,31 @@
             <span id="search-remove"><i class="ti-close"></i></span>
           </div>
           <!-- Navigation Menu ==== -->
-          <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
+          <div class="menu-links navbar-collapse collapse justify-content-center" id="menuDropdown">
             <div class="menu-logo">
               <a href="index.html"><img src="assets/images/logo.png" alt=""></a>
             </div>
             <ul class="nav navbar-nav">
-              <li class="active"><a href="javascript:;">Home <i class="fa fa-chevron-down"></i></a>
-                <ul class="sub-menu">
-                  <li><a href="index.html">Home 1</a></li>
-                  <li><a href="index-2.html">Home 2</a></li>
-                </ul>
-              </li>
-              <li><a href="javascript:;">Pages <i class="fa fa-chevron-down"></i></a>
-                <ul class="sub-menu">
-                  <li><a href="javascript:;">About<i class="fa fa-angle-right"></i></a>
-                    <ul class="sub-menu">
-                      <li><a href="about-1.html">About 1</a></li>
-                      <li><a href="about-2.html">About 2</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="javascript:;">Event<i class="fa fa-angle-right"></i></a>
-                    <ul class="sub-menu">
-                      <li><a href="event.html">Event</a></li>
-                      <li><a href="events-details.html">Events Details</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="javascript:;">FAQ's<i class="fa fa-angle-right"></i></a>
-                    <ul class="sub-menu">
-                      <li><a href="faq-1.html">FAQ's 1</a></li>
-                      <li><a href="faq-2.html">FAQ's 2</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="javascript:;">Contact Us<i class="fa fa-angle-right"></i></a>
-                    <ul class="sub-menu">
-                      <li><a href="contact-1.html">Contact Us 1</a></li>
-                      <li><a href="contact-2.html">Contact Us 2</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="portfolio.html">Portfolio</a></li>
-                  <li><a href="profile.html">Profile</a></li>
-                  <li><a href="membership.html">Membership</a></li>
-                  <li><a href="error-404.html">404 Page</a></li>
-                </ul>
-              </li>
+              <li class="active"><a href="/">Home</a></li>
               <li class="add-mega-menu"><a href="javascript:;">Our Courses <i class="fa fa-chevron-down"></i></a>
                 <ul class="sub-menu add-menu">
                   <li class="add-menu-left">
                     <h5 class="menu-adv-title">Our Courses</h5>
                     <ul>
+                      <!-- to be cont... -->
                       <li><a href="{{ route('courses') }}">Courses </a></li>
-                      <li><a href="courses-details.html">Courses Details</a></li>
-                      <li><a href="profile.html">Instructor Profile</a></li>
-                      <li><a href="event.html">Upcoming Event</a></li>
-                      <li><a href="membership.html">Membership</a></li>
+                      <li><a href="#">Courses Details</a></li>
+                      <li><a href="#">Instructor Profile</a></li>
                     </ul>
                   </li>
                   <li class="add-menu-right">
-                    <img src="assets/images/adv/adv.jpg" alt="" />
+                    <img src="{{asset('assets/images/adv/adv.jpg')}}" alt="" />
                   </li>
                 </ul>
               </li>
-              <li><a href="javascript:;">Blog <i class="fa fa-chevron-down"></i></a>
-                <ul class="sub-menu">
-                  <li><a href="blog-classic-grid.html">Blog Classic</a></li>
-                  <li><a href="blog-classic-sidebar.html">Blog Classic Sidebar</a></li>
-                  <li><a href="blog-list-sidebar.html">Blog List Sidebar</a></li>
-                  <li><a href="blog-standard-sidebar.html">Blog Standard Sidebar</a></li>
-                  <li><a href="blog-details.html">Blog Details</a></li>
-                </ul>
-              </li>
-              <li class="nav-dashboard"><a href="javascript:;">Dashboard <i class="fa fa-chevron-down"></i></a>
-                <ul class="sub-menu">
-                  <li><a href="admin/index.html">Dashboard</a></li>
-                  <li><a href="admin/add-listing.html">Add Listing</a></li>
-                  <li><a href="admin/bookmark.html">Bookmark</a></li>
-                  <li><a href="admin/courses.html">Courses</a></li>
-                  <li><a href="admin/review.html">Review</a></li>
-                  <li><a href="admin/teacher-profile.html">Teacher Profile</a></li>
-                  <li><a href="admin/user-profile.html">User Profile</a></li>
-                  <li><a href="javascript:;">Calendar<i class="fa fa-angle-right"></i></a>
-                    <ul class="sub-menu">
-                      <li><a href="admin/basic-calendar.html">Basic Calendar</a></li>
-                      <li><a href="admin/list-view-calendar.html">List View Calendar</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="javascript:;">Mailbox<i class="fa fa-angle-right"></i></a>
-                    <ul class="sub-menu">
-                      <li><a href="admin/mailbox.html">Mailbox</a></li>
-                      <li><a href="admin/mailbox-compose.html">Compose</a></li>
-                      <li><a href="admin/mailbox-read.html">Mail Read</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
+              <!-- to be cont... -->
+              <li class="nav-dashboard"><a href="#">Dashboard</a></li>
+              <li class="nav-dashboard"><a href="#">Contact Us</a></li>
             </ul>
             <div class="nav-social-link">
               <a href="javascript:;"><i class="fa fa-facebook"></i></a>
@@ -246,7 +188,9 @@
   </header>
   <!-- header END ==== -->
 
+  <main>
   @yield('content')
+  </main>
 
   <!-- Footer ==== -->
   <footer>
@@ -255,19 +199,21 @@
         <div class="container">
           <div class="d-flex align-items-stretch">
             <div class="pt-logo mr-auto">
-              <a href="index.html"><img src="assets/images/logo-white.png" alt="" /></a>
+              <a href="/"><img src="{{asset('assets/images/logo-white.png')}}" alt="EduChamp Logo" /></a>
             </div>
             <div class="pt-social-link">
               <ul class="list-inline m-a0">
-                <li><a href="#" class="btn-link"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#" class="btn-link"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#" class="btn-link"><i class="fa fa-linkedin"></i></a></li>
-                <li><a href="#" class="btn-link"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="javascript:;" class="btn-link"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="javascript:;" class="btn-link"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="javascript:;" class="btn-link"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="javascript:;" class="btn-link"><i class="fa fa-google-plus"></i></a></li>
               </ul>
             </div>
+            @guest
             <div class="pt-btn-join">
-              <a href="#" class="btn ">Join Now</a>
+              <a href="/login" class="btn ">Join Now</a>
             </div>
+            @endguest
           </div>
         </div>
       </div>
@@ -280,15 +226,14 @@
                 Weekly Breaking news analysis and cutting edge advices on job searching.
               </p>
               <div class="subscribe-form m-b20">
-                <form class="subscription-form"
-                  action="http://educhamp.themetrades.com/demo/assets/script/mailchamp.php" method="post">
+                <form class="subscription-form" action="http://educhamp.themetrades.com/demo/assets/script/mailchamp.php" method="post">
                   <div class="ajax-message"></div>
                   <div class="input-group">
-                    <input name="email" required="required" class="form-control" placeholder="Your Email Address"
-                      type="email">
+                    <input name="email" required="required" class="form-control" placeholder="Your Email Address" type="email">
                     <span class="input-group-btn">
-                      <button name="submit" value="Submit" type="submit" class="btn"><i
-                          class="fa fa-arrow-right"></i></button>
+                      <button name="submit" value="Submit" type="submit" class="btn">
+                        <i class="fa fa-arrow-right"></i>
+                      </button>
                     </span>
                   </div>
                 </form>
@@ -301,10 +246,11 @@
                 <div class="widget footer_widget">
                   <h5 class="footer-title">Company</h5>
                   <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about-1.html">About</a></li>
-                    <li><a href="faq-1.html">FAQs</a></li>
-                    <li><a href="contact-1.html">Contact</a></li>
+                    <!-- to be cont... -->
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Contact</a></li>
                   </ul>
                 </div>
               </div>
@@ -312,11 +258,11 @@
                 <div class="widget footer_widget">
                   <h5 class="footer-title">Get In Touch</h5>
                   <ul>
-                    <li><a href="http://educhamp.themetrades.com/admin/index.html">Dashboard</a>
-                    </li>
-                    <li><a href="blog-classic-grid.html">Blog</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="event.html">Event</a></li>
+                    <!-- to be cont... -->
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Event</a></li>
                   </ul>
                 </div>
               </div>
@@ -324,10 +270,11 @@
                 <div class="widget footer_widget">
                   <h5 class="footer-title">Courses</h5>
                   <ul>
-                    <li><a href="courses.html">Courses</a></li>
-                    <li><a href="courses-details.html">Details</a></li>
-                    <li><a href="membership.html">Membership</a></li>
-                    <li><a href="profile.html">Profile</a></li>
+                    <!-- to be cont... -->
+                    <li><a href="{{ route('courses') }}">Courses</a></li>
+                    <li><a href="#">Details</a></li>
+                    <li><a href="#">Membership</a></li>
+                    <li><a href="#">Profile</a></li>
                   </ul>
                 </div>
               </div>
@@ -337,22 +284,46 @@
             <div class="widget widget_gallery gallery-grid-4">
               <h5 class="footer-title">Our Gallery</h5>
               <ul class="magnific-image">
-                <li><a href="assets/images/gallery/pic1.jpg" class="magnific-anchor"><img
-                      src="assets/images/gallery/pic1.jpg" alt=""></a></li>
-                <li><a href="assets/images/gallery/pic2.jpg" class="magnific-anchor"><img
-                      src="assets/images/gallery/pic2.jpg" alt=""></a></li>
-                <li><a href="assets/images/gallery/pic3.jpg" class="magnific-anchor"><img
-                      src="assets/images/gallery/pic3.jpg" alt=""></a></li>
-                <li><a href="assets/images/gallery/pic4.jpg" class="magnific-anchor"><img
-                      src="assets/images/gallery/pic4.jpg" alt=""></a></li>
-                <li><a href="assets/images/gallery/pic5.jpg" class="magnific-anchor"><img
-                      src="assets/images/gallery/pic5.jpg" alt=""></a></li>
-                <li><a href="assets/images/gallery/pic6.jpg" class="magnific-anchor"><img
-                      src="assets/images/gallery/pic6.jpg" alt=""></a></li>
-                <li><a href="assets/images/gallery/pic7.jpg" class="magnific-anchor"><img
-                      src="assets/images/gallery/pic7.jpg" alt=""></a></li>
-                <li><a href="assets/images/gallery/pic8.jpg" class="magnific-anchor"><img
-                      src="assets/images/gallery/pic8.jpg" alt=""></a></li>
+                <li>
+                  <a href="{{asset('assets/images/gallery/pic1.jpg')}}" class="magnific-anchor">
+                    <img src="{{asset('assets/images/gallery/pic1.jpg')}}" alt="Gallery Image 1">
+                  </a>
+                </li>
+                <li>
+                  <a href="{{asset('assets/images/gallery/pic2.jpg')}}" class="magnific-anchor">
+                    <img src="{{asset('assets/images/gallery/pic2.jpg')}}" alt="Gallery Image 2">
+                  </a>
+                </li>
+                <li>
+                  <a href="{{asset('assets/images/gallery/pic3.jpg')}}" class="magnific-anchor">
+                    <img src="{{asset('assets/images/gallery/pic3.jpg')}}" alt="Gallery Image 3">
+                  </a>
+                </li>
+                <li>
+                  <a href="{{asset('assets/images/gallery/pic4.jpg')}}" class="magnific-anchor">
+                    <img src="{{asset('assets/images/gallery/pic4.jpg')}}" alt="Gallery Image 4">
+                  </a>
+                </li>
+                <li>
+                  <a href="{{asset('assets/images/gallery/pic5.jpg')}}" class="magnific-anchor">
+                    <img src="{{asset('assets/images/gallery/pic5.jpg')}}" alt="Gallery Image 5">
+                  </a>
+                </li>
+                <li>
+                  <a href="{{asset('assets/images/gallery/pic6.jpg')}}" class="magnific-anchor">
+                    <img src="{{asset('assets/images/gallery/pic6.jpg')}}" alt="Gallery Image 6">
+                  </a>
+                </li>
+                <li>
+                  <a href="{{asset('assets/images/gallery/pic7.jpg')}}" class="magnific-anchor">
+                    <img src="{{asset('assets/images/gallery/pic7.jpg')}}" alt="Gallery Image 7">
+                  </a>
+                </li>
+                <li>
+                  <a href="{{asset('assets/images/gallery/pic8.jpg')}}" class="magnific-anchor">
+                    <img src="{{asset('assets/images/gallery/pic8.jpg')}}" alt="Gallery Image 8">
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -362,14 +333,17 @@
     <div class="footer-bottom">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 text-center"> Developed by <a target="_blank"
-              href="https://taha-shaban-kaamel.github.io/portfolio/#home" class="text-warning"> Taha
-              Shaban 👩‍💻</a></div>
+          <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+            <span>
+              Developed by <a target="_blank" href="https://taha-shaban-kaamel.github.io/portfolio/#home" class="text-warning">Taha Shaban 👩‍💻</a>
+            </span>
+          </div>
         </div>
       </div>
     </div>
   </footer>
   <!-- Footer END ==== -->
+  
   <!-- External JavaScripts -->
   <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/vendors/bootstrap/js/popper.min.js') }}"></script>
@@ -393,8 +367,7 @@
   <script src="{{ asset('assets/vendors/revolution/js/extensions/revolution.extension.actions.min.js') }}"></script>
   <script src="{{ asset('assets/vendors/revolution/js/extensions/revolution.extension.carousel.min.js') }}"></script>
   <script src="{{ asset('assets/vendors/revolution/js/extensions/revolution.extension.kenburn.min.js') }}"></script>
-  <script src="{{ asset('assets/vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js') }}">
-  </script>
+  <script src="{{ asset('assets/vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js') }}"></script>
   <script src="{{ asset('assets/vendors/revolution/js/extensions/revolution.extension.migration.min.js') }}"></script>
   <script src="{{ asset('assets/vendors/revolution/js/extensions/revolution.extension.navigation.min.js') }}"></script>
   <script src="{{ asset('assets/vendors/revolution/js/extensions/revolution.extension.parallax.min.js') }}"></script>
