@@ -1,7 +1,7 @@
 @extends('layouts.assetsLinks')
 
 @section('content')
-<div class="container-xxl">
+<div class="container">
   <div class="authentication-wrapper authentication-basic container-p-y">
     <div class="authentication-inner">
       <!-- Register Card -->

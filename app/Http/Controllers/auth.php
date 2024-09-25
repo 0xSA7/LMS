@@ -48,15 +48,12 @@ class auth extends Controller
     ]);
     if (FacadesAuth::attempt($validated_user)) {
       $user = FacadesAuth::user();
-      if ($user->role == 'admin') {
-        request()->session()->regenerate();
-        return redirect('/admin/students');
-      } else if ($user->role == 'instructor') {
-        request()->session()->regenerate();
-        return redirect('/instructor');
-      } else {
-        request()->session()->regenerate();
-        return redirect('/');
+      switch ($user->role) {
+        case 'admin':
+        case 'instructor':
+        case 'student':
+          request()->session()->regenerate();
+          return redirect('/');
       }
     }
     return redirect()->back();
