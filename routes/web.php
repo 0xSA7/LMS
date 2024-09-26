@@ -40,14 +40,15 @@ Route::controller(auth::class)->group(function () {
 
 
 // admin routes
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->name('admin')->group(function () {
   Route::controller(AdminStudentStudentController::class)->group(function () {
     Route::get('/', AdminHomeController::class);
-    Route::prefix('students')->group(function () {
+    Route::prefix('/students')->name('.student')->group(function () {
       Route::get('/', 'index');
-      Route::get('edit/{id}', 'edit')->where('id', '[0-9]+');
-      Route::get('show/{id}', 'show')->where('id', '[0-9]+');
-      Route::get('delete/{id}', 'edit')->where('id', '[0-9]+');
+      Route::delete('/', 'destroy')->where('id', '[0-9]+')->name('.destory');
+      Route::get('/edit/{id}', 'edit')->where('id', '[0-9]+');
+      Route::put('/edit/{id}', 'update')->where('id', '[0-9]+')->name('.update');
+      Route::get('/show/{id}', 'show')->where('id', '[0-9]+');
     });
   });
 });
