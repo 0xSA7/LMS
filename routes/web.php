@@ -1,17 +1,45 @@
 <?php
 
-use App\Http\Controllers\admin;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\studentController as AdminStudentStudentController;
 use App\Http\Controllers\auth;
 use App\Http\Controllers\Enrollment\EnrollmentController;
-use App\Http\Controllers\index;
 use App\Http\Controllers\courses\courseController;
 use App\Http\Controllers\Student\studentController as StudentController;
 use Illuminate\Support\Facades\Route;
 
 
+// global routes
+Route::get('/', HomeController::class);
+Route::get('/logout', HomeController::class);
+
+
+// auth users routes
+Route::controller(auth::class)->group(function () {
+  Route::prefix('/register')->name('reg')->group(function () {
+    Route::get('', 'showRegisterForm')->name('.show');
+    Route::post('', 'store')->name('.add');
+  });
+  Route::prefix('/login')->name('login')->group(function () {
+    Route::get('', 'showLoginForm')->name('.show');
+    Route::post('', 'login')->name('.add');
+  });
+  Route::prefix('/forgotpass')->name('forgotPass')->group(function () {
+    Route::get('', 'showForgotPassForm')->name('.show');
+  });
+  Route::post('/logout', 'logout');
+  Route::get('/profile', 'showProfile');
+  Route::get('/profile/update', 'showUpdateProfile')->name('updateProfile');
+  Route::put('/profile/update', 'updateProfile')->name('updateProfile');
+  Route::get('/profile/password', 'showUpdatePassForm')->name('updatePass');
+  Route::put('/profile/password', 'updatePass')->name('updatePass');
+  Route::get('/profile/email', 'showUpdateEmailForm')->name('updateEmail');
+  Route::put('/profile/email', 'updateEmail')->name('updateEmail');
+});
+
+
+// admin routes
 Route::prefix('admin')->group(function () {
   Route::controller(AdminStudentStudentController::class)->group(function () {
     Route::get('/', AdminHomeController::class);
@@ -25,6 +53,7 @@ Route::prefix('admin')->group(function () {
 });
 
 
+// students routes
 Route::prefix('student')->group(function () {
   Route::controller(StudentController::class)->group(function () {
     Route::get('/', );
@@ -35,23 +64,13 @@ Route::prefix('student')->group(function () {
 });
 
 
+// instructor routes
 Route::get('createcourse', function () {
   return view('instructor.create-course');
 });
 
 
-Route::get('/', HomeController::class);
-Route::get('/login', [auth::class, 'showingLoginForm']);
-Route::get('forgotpassword', [auth::class, 'forgotPassword']);
-Route::get('/register', [auth::class, 'register']);
-Route::post('/register', [auth::class, 'store']);
-Route::get('/logout', HomeController::class);
-Route::post('/logout', [auth::class, 'destroy']);
-Route::post('/login', [auth::class, 'login']);
-Route::get('/profile', [auth::class, 'showProfile']);
-Route::post('/profile', [auth::class, 'updateProfile'])->name('updateProfile');
-
-
+// students routes
 Route::prefix('courses')->group(function () {
   Route::controller(courseController::class)->name('courses')->group(function () {
     Route::get('/', 'index')->name('');
@@ -59,4 +78,12 @@ Route::prefix('courses')->group(function () {
   });
   Route::post('/courseDetails/{id}', [EnrollmentController::class, 'store'])->name('courseEnroll');
   Route::delete('/courseDetails/{id}', [EnrollmentController::class, 'destroy'])->name('courseUnEnroll');
+});
+
+// test
+Route::get('/test', function () {
+  $studentsCount = 8;
+  $students = [];
+  return view('auth.forgotpassword');
+  // return view('admin.students', compact('studentsCount', 'students'));
 });

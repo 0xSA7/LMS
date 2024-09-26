@@ -11,15 +11,15 @@ use Illuminate\Validation\Rules\Password;
 
 class auth extends Controller
 {
-  public function showingLoginForm()
+  public function showLoginForm()
   {
     return view('auth.login');
   }
-  public function register()
+  public function showRegisterForm()
   {
     return view('auth.register');
   }
-  public function forgotPassword()
+  public function showForgotPassForm()
   {
     return view('auth.forgotpassword');
   }
@@ -50,10 +50,10 @@ class auth extends Controller
       $user = FacadesAuth::user();
       if ($user->role == 'admin') {
         request()->session()->regenerate();
-        return redirect('/admin/students');
+        return redirect('/');
       } else if ($user->role == 'instructor') {
         request()->session()->regenerate();
-        return redirect('/instructor');
+        return redirect('/');
       } else {
         request()->session()->regenerate();
         return redirect('/');
@@ -62,6 +62,24 @@ class auth extends Controller
     return redirect()->back();
   }
   public function showProfile()
+  {
+    $user = FacadesAuth::user();
+    $student_courses = User::find($user->id)->courses_by_student;
+    return view('layouts.profile', compact('user', 'student_courses'));
+  }
+  public function showUpdateProfile()
+  {
+    $user = FacadesAuth::user();
+    $student_courses = User::find($user->id)->courses_by_student;
+    return view('layouts.profile', compact('user', 'student_courses'));
+  }
+  public function showUpdatePassForm()
+  {
+    $user = FacadesAuth::user();
+    $student_courses = User::find($user->id)->courses_by_student;
+    return view('layouts.profile', compact('user', 'student_courses'));
+  }
+  public function showUpdateEmailForm()
   {
     $user = FacadesAuth::user();
     $student_courses = User::find($user->id)->courses_by_student;
@@ -82,7 +100,7 @@ class auth extends Controller
     $userM->save();
     return redirect('profile');
   }
-  public function destroy()
+  public function logout()
   {
     FacadesAuth::logout();
     return redirect('/');

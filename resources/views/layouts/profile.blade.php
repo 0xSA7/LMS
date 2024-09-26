@@ -1,4 +1,4 @@
-@props(['user']);
+@props(['user'])
 @extends('layouts.assetsLinks')
 @section('content')
 <div class="page-wraper">
@@ -6,7 +6,7 @@
   <!-- Content -->
   <div class="page-content bg-white">
     <!-- inner page banner -->
-    <div class="page-banner ovbl-dark" style="background-image:url('{{ asset('assets/images/banner/banner1.jpg') }}');">
+    <div class="page-banner ovbl-dark" style="background-image:url('{{ asset('assets/images/banner/banner1.jpg') }}">
       <div class="container">
         <div class="page-banner-entry">
           <h1 class="text-white">Profile</h1>
@@ -84,7 +84,7 @@
                     </div>
                     <div class="courses-filter">
                       <div class="clearfix">
-                        <ul id="masonry" class="ttr-gallery-listing magnific-image row">
+                        <ul id="masonry" class="ttr-gallery-listing magnific-image list-unstyled row">
                           @foreach ($student_courses as $course)
                           <li class="action-card col-xl-4 col-lg-6 col-md-12 col-sm-6 publish">
                             <div class="cours-bx">

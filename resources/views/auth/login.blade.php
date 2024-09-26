@@ -1,20 +1,22 @@
 @extends('layouts.assetsLinks')
 
 @section('content')
-
 <div class="page-wraper">
+  <!-- loader -->
   <div id="loading-icon-bx"></div>
+  
+  <!-- login form page -->
   <div class="account-form">
     <div class="account-head" style="background-image:url({{ asset('assets/images/background/bg2.jpg') }});">
-      <a href="index.html"><img src="{{ asset('assets/images/logo-white-2.png') }}" alt=""></a>
+      <a href="/"><img src="{{ asset('assets/images/logo-white-2.png') }}" alt=""></a>
     </div>
     <div class="account-form-inner">
       <div class="account-container">
         <div class="heading-bx left">
           <h2 class="title-head">Login to your <span>Account</span></h2>
-          <p>Don't have an account? <a href="{{ asset('register') }}">Create one here</a></p>
+          <p>Don't have an account? <a href="{{route('reg.show')}}">Create one here</a></p>
         </div>
-        <form class="contact-bx" method="POST" action="login">
+        <form class="contact-bx" method="POST" action="{{route('login.add')}}">
           @csrf
           <div class="row placeani">
             <div class="col-lg-12">
@@ -37,7 +39,7 @@
                   <x-form-input type="checkbox" id="customControlAutosizing" class="custom-control-input" />
                   <x-form-label for="customControlAutosizing" class="custom-control-label">Remember Me</x-form-label>
                 </div>
-                <a href="{{ asset('forget-password.html') }}" class="ml-auto">Forgot Password?</a>
+                <a href="{{route('forgotPass.show')}}" class="ml-auto">Forgot Password?</a>
               </div>
             </div>
             <div class="col-lg-12 m-b30">
@@ -56,5 +58,4 @@
     </div>
   </div>
 </div>
-
 @endsection

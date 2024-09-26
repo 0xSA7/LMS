@@ -59,7 +59,7 @@
   <header class="header rs-nav">
     <div class="top-bar">
       <div class="container">
-        <div class="row d-flex justify-content-between">
+        <div class="row d-flex justify-content-between align-items-center">
           <div class="topbar-left">
             <ul>
               <li>
@@ -75,37 +75,34 @@
             </ul>
           </div>
           <div class="topbar-right">
-            <ul class="align-items-start">
+            <ul class="align-items-center">
               <li>
                 <select class="header-lang-bx">
                   <option data-icon="flag flag-uk">English UK</option>
                   <option data-icon="flag flag-us">English US</option>
                 </select>
               </li>
-
               @guest
               <li><a href="/login">Login</a></li>
               <li><a href="/register">Register</a></li>
               @endguest
-              
               @auth
               <!-- Avatar -->
-              <li class="nav-item dropdown">
+              <li class="dropdown">
                 <!-- to be cont... -->
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="dropdown-toggle" href="javascript:;" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle" height="10" style="width: 30px; height:30px ;" alt="Avatar" loading="lazy" />
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item " href="/profile">My Profile</a>
-                  <a class="dropdown-item " href="#">settings</a>
+                  <a class="dropdown-item" href="/profile">My Profile</a>
+                  <a class="dropdown-item" href="#">settings</a>
                   <form action="/logout" method="POST">
                     @csrf
-                    <button type="submit" class="dropdown-item  btn-danger">Logout</button>
+                    <button type="submit" class="dropdown-item">Logout</button>
                   </form>
                 </div>
               </li>
               @endauth
-
             </ul>
           </div>
         </div>

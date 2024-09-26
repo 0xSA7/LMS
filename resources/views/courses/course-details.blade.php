@@ -38,12 +38,12 @@
                     <form action="{{route('courseUnEnroll', $course->id)}}" method="POST">
                       @csrf
                       @method('delete')
-                      <button role="submit" class="btn radius-xl text-uppercase">UnEnroll</button>
+                      <button type="submit" class="btn radius-xl text-uppercase">UnEnroll</button>
                     </form>
                     @else
                     <form action="{{route('courseEnroll', $course->id)}}" method="POST">
                       @csrf
-                      <button role="submit" class="btn radius-xl text-uppercase">Enroll</button>
+                      <button type="submit" class="btn radius-xl text-uppercase">Enroll</button>
                     </form>
                     @endif
                   @endauth
@@ -62,8 +62,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="px-4 pt-4 text-center">
-                  <span>Category: {{$course->category}}</span>
+                <div class="pt-4 text-center">
+                  <small class="d-block">Category: </small>
+                  <span class="text-capitalize text-black">{{$course->category}}</span>
                 </div>
               </div>
             </div>
