@@ -30,7 +30,7 @@ class InstructorController extends Controller
       'email' => ['required'],
     ]);
     if ($req->phone) {
-      $validated_user = $req->validate([
+      $validated_user += $req->validate([
         'phone' => 'regex:/(01)[0-9]{9}/',
       ]);
       $userM['phone'] = $validated_user['phone'];
@@ -65,7 +65,7 @@ class InstructorController extends Controller
       'password' => ['required', Password::min(6)],
     ]);
     if($req->phone) {
-      $validated_user = request()->validate([
+      $validated_user += request()->validate([
         'phone' => 'regex:/(01)[0-9]{9}/',
       ]);
       $newInstructor->phone = $validated_user['phone'];

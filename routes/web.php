@@ -42,12 +42,12 @@ Route::controller(auth::class)->group(function () {
   });
   Route::post('/logout', 'logout');
   Route::get('/profile', 'showProfile');
-  Route::get('/profile/update', 'showUpdateProfile')->name('updateProfile');
-  Route::put('/profile/update', 'updateProfile')->name('updateProfile');
-  Route::get('/profile/password', 'showUpdatePassForm')->name('updatePass');
-  Route::put('/profile/password', 'updatePass')->name('updatePass');
-  Route::get('/profile/email', 'showUpdateEmailForm')->name('updateEmail');
-  Route::put('/profile/email', 'updateEmail')->name('updateEmail');
+  Route::put('/profile', 'updateProfile')->name('updateProfile');
+  // Route::get('/profile/update', 'showUpdateProfile')->name('updateProfile');
+  // Route::get('/profile/password', 'showUpdatePassForm')->name('updatePass');
+  // Route::put('/profile/password', 'updatePass')->name('updatePass');
+  // Route::get('/profile/email', 'showUpdateEmailForm')->name('updateEmail');
+  // Route::put('/profile/email', 'updateEmail')->name('updateEmail');
 });
 
 

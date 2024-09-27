@@ -28,11 +28,15 @@ class studentController extends Controller
     $validated_user = $req->validate([
       'name' => ['required'],
       'email' => ['required'],
-      'phone' => 'required|regex:/(01)[0-9]{9}/',
     ]);
+    if ($req->phone) {
+      $validated_user += $req->validate([
+        'phone' => 'regex:/(01)[0-9]{9}/',
+      ]);
+      $userM['phone'] = $validated_user['phone'];
+    }
     $userM['name'] = $validated_user['name'];
     $userM['email'] = $validated_user['email'];
-    $userM['phone'] = $validated_user['phone'];
     $userM->save();
     return redirect('admin/students');
   }
@@ -60,7 +64,7 @@ class studentController extends Controller
       'password' => ['required', Password::min(6)],
     ]);
     if($req->phone) {
-      $validated_user = request()->validate([
+      $validated_user += request()->validate([
         'phone' => 'regex:/(01)[0-9]{9}/',
       ]);
     }
