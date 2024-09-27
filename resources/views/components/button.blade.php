@@ -1,0 +1,1 @@
+<button {{$attributes->merge(["class"=>"btn button-md"])}} >{{$slot}}</button>
