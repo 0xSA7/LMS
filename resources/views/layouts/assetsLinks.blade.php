@@ -95,7 +95,6 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href="/profile">My Profile</a>
-                  <a class="dropdown-item" href="#">settings</a>
                   <form action="/logout" method="POST">
                     @csrf
                     <button type="submit" class="dropdown-item">Logout</button>
@@ -160,7 +159,6 @@
                       <!-- to be cont... -->
                       <li><a href="{{ route('courses') }}">Courses </a></li>
                       <li><a href="{{route('courses.courseDetails', 1)}}">Courses Details</a></li>
-                      <li><a href="#">Instructor Profile</a></li>
                     </ul>
                   </li>
                   <li class="add-menu-right">
@@ -169,7 +167,7 @@
                 </ul>
               </li>
               <!-- to be cont... -->
-              <li class="nav-dashboard"><a href="#">Dashboard</a></li>
+              <li class="nav-dashboard"><a href="/dashboard">Dashboard</a></li>
               <li class="nav-dashboard"><a href="#">Contact Us</a></li>
             </ul>
             <div class="nav-social-link">

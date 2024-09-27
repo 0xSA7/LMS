@@ -102,17 +102,25 @@
                   </h5>
                   <span>{{$course->category}}</span>
                   </div>
-                  <div class="cours-more-info">
-                  <div class="review">
-                    <span>3 Review</span>
-                    <ul class="cours-star">
-                    <li class="active"><i class="fa fa-star"></i></li>
-                    <li class="active"><i class="fa fa-star"></i></li>
-                    <li class="active"><i class="fa fa-star"></i></li>
-                    <li><i class="fa fa-star"></i></li>
-                    <li><i class="fa fa-star"></i></li>
-                    </ul>
-                  </div>
+                  <div class="cours-more-info d-flex justify-content-center align-items-center">
+                    <div class="review">
+                      <span>3 Review</span>
+                      <ul class="cours-star">
+                      <li class="active"><i class="fa fa-star"></i></li>
+                      <li class="active"><i class="fa fa-star"></i></li>
+                      <li class="active"><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      </ul>
+                    </div>
+                    <div class="w-50 align-items-center">
+                      <form action="{{route('instructor.course.destory')}}" method="post">
+                      @csrf
+                      @method('delete')
+                      <input type="text" name="id" value="{{$course->id}}" hidden>
+                      <button class="m-auto w-100 btn btn-danger py-4 rounded-0" role="submit">Delete</button>
+                      </form>
+                    </div>
                   </div>
                 </div>
                 </li>
@@ -183,7 +191,8 @@
                               </div>
                               <div class="mb-6">
                                 <label for="desc" class="form-label">Course Description</label>
-                                <textarea class="form-control" name="description" id="desc" placeholder="Enter your course description..."></textarea>
+                                <textarea class="form-control" name="description" id="desc"
+                                  placeholder="Enter your course description..."></textarea>
                                 <!-- <input type="text" class="form-control" id="email" name="email"
                                   placeholder="Enter your email" /> -->
                               </div>

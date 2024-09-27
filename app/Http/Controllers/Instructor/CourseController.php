@@ -48,4 +48,8 @@ class CourseController extends Controller
     $newcrs->save();
     return redirect('/instructor/courses');
   }
+  public function destroy(Request $req) {
+    Course::find($req['id'])->delete();
+    return redirect()->back();
+  }
 }

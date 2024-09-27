@@ -28,11 +28,15 @@ class InstructorController extends Controller
     $validated_user = $req->validate([
       'name' => ['required'],
       'email' => ['required'],
-      'phone' => 'required|regex:/(01)[0-9]{9}/',
     ]);
+    if ($req->phone) {
+      $validated_user = $req->validate([
+        'phone' => 'regex:/(01)[0-9]{9}/',
+      ]);
+      $userM['phone'] = $validated_user['phone'];
+    }
     $userM['name'] = $validated_user['name'];
     $userM['email'] = $validated_user['email'];
-    $userM['phone'] = $validated_user['phone'];
     $userM->save();
     return redirect('admin/instructors');
   }
@@ -54,14 +58,19 @@ class InstructorController extends Controller
   }
   public function store(Request $req)
   {
+    $newInstructor = new User();
     $validated_user = request()->validate([
       'name' => ['required'],
       'email' => ['required'],
-      'phone' => 'required|regex:/(01)[0-9]{9}/',
       'password' => ['required', Password::min(6)],
     ]);
+    if($req->phone) {
+      $validated_user = request()->validate([
+        'phone' => 'regex:/(01)[0-9]{9}/',
+      ]);
+      $newInstructor->phone = $validated_user['phone'];
+    }
     $validated_user['password'] = Hash::make($validated_user['password']);
-    $newInstructor = new User();
     $newInstructor->name = $validated_user['name'];
     $newInstructor->email = $validated_user['email'];
     $newInstructor->password = $validated_user['password'];

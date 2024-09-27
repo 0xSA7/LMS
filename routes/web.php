@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 // global routes
 Route::get('/', HomeController::class);
 Route::get('/logout', HomeController::class);
+Route::get('/dashboard', function () {
+  return view('layouts.dashboard');
+});
 Route::prefix('courses')->group(function () {
   Route::controller(courseController::class)->name('courses')->group(function () {
     Route::get('/', 'index')->name('');
@@ -80,7 +83,7 @@ Route::prefix('admin')->name('admin')->group(function () {
 Route::prefix('instructor')->name('instructor')->group(function () {
   Route::prefix('/courses')->name('.course')->controller(InstructorCourseController::class)->group(function () {
     Route::get('/', 'index');
-    Route::delete('/', 'destroy')->where('id', '[0-9]+')->name('.destory');
+    Route::delete('/', 'destroy')->name('.destory');
     Route::post('/', 'store')->name('.store');
     Route::get('/edit/{id}', 'edit')->where('id', '[0-9]+')->name('.edit');
     Route::put('/edit/{id}', 'update')->where('id', '[0-9]+')->name('.update');

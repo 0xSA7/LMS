@@ -50,7 +50,7 @@ class auth extends Controller
       $user = FacadesAuth::user();
       if ($user->role == 'admin') {
         request()->session()->regenerate();
-        return redirect('/admin/students');
+        return redirect('/dashboard');
       } else if ($user->role == 'instructor') {
         request()->session()->regenerate();
         return redirect('/instructor/courses');

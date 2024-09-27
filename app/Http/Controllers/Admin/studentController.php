@@ -57,9 +57,13 @@ class studentController extends Controller
     $validated_user = request()->validate([
       'name' => ['required'],
       'email' => ['required'],
-      'phone' => 'required|regex:/(01)[0-9]{9}/',
       'password' => ['required', Password::min(6)],
     ]);
+    if($req->phone) {
+      $validated_user = request()->validate([
+        'phone' => 'regex:/(01)[0-9]{9}/',
+      ]);
+    }
     $validated_user['password'] = Hash::make($validated_user['password']);
     User::create($validated_user);
     return redirect('/admin/students');

@@ -98,16 +98,16 @@
                               <span>Programming</span>
                               </div>
                               <div class="cours-more-info">
-                              <div class="review">
-                                <span>3 Review</span>
-                                <ul class="cours-star">
-                                <li class="active"><i class="fa fa-star"></i></li>
-                                <li class="active"><i class="fa fa-star"></i></li>
-                                <li class="active"><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                </ul>
-                              </div>
+                                <div class="review">
+                                  <span>3 Review</span>
+                                  <ul class="cours-star">
+                                  <li class="active"><i class="fa fa-star"></i></li>
+                                  <li class="active"><i class="fa fa-star"></i></li>
+                                  <li class="active"><i class="fa fa-star"></i></li>
+                                  <li><i class="fa fa-star"></i></li>
+                                  <li><i class="fa fa-star"></i></li>
+                                  </ul>
+                                </div>
                               </div>
                             </div>
                           </li>
@@ -116,60 +116,13 @@
                       </div>
                     </div>
                   </div>
-                  <div class="tab-pane" id="quiz-results">
-                    <div class="profile-head">
-                      <h3>Quiz Results</h3>
-                    </div>
-                    <div class="courses-filter">
-                      <div class="row">
-                        <div class="col-md-6 col-lg-6">
-                          <ul class="course-features">
-                            <li><i class="ti-book"></i> <span class="label">Lectures</span> <span class="value">8</span>
-                            </li>
-                            <li><i class="ti-help-alt"></i> <span class="label">Quizzes</span> <span
-                                class="value">1</span></li>
-                            <li><i class="ti-time"></i> <span class="label">Duration</span> <span class="value">60
-                                hours</span></li>
-                            <li><i class="ti-stats-up"></i> <span class="label">Skill
-                                level</span> <span class="value">Beginner</span>
-                            </li>
-                            <li><i class="ti-smallcap"></i> <span class="label">Language</span> <span
-                                class="value">English</span></li>
-                            <li><i class="ti-user"></i> <span class="label">Students</span> <span
-                                class="value">32</span></li>
-                            <li><i class="ti-check-box"></i> <span class="label">Assessments</span> <span
-                                class="value">Yes</span></li>
-                          </ul>
-                        </div>
-                        <div class="col-md-6 col-lg-6">
-                          <ul class="course-features">
-                            <li><i class="ti-book"></i> <span class="label">Lectures</span> <span class="value">8</span>
-                            </li>
-                            <li><i class="ti-help-alt"></i> <span class="label">Quizzes</span> <span
-                                class="value">1</span></li>
-                            <li><i class="ti-time"></i> <span class="label">Duration</span> <span class="value">60
-                                hours</span></li>
-                            <li><i class="ti-stats-up"></i> <span class="label">Skill
-                                level</span> <span class="value">Beginner</span>
-                            </li>
-                            <li><i class="ti-smallcap"></i> <span class="label">Language</span> <span
-                                class="value">English</span></li>
-                            <li><i class="ti-user"></i> <span class="label">Students</span> <span
-                                class="value">32</span></li>
-                            <li><i class="ti-check-box"></i> <span class="label">Assessments</span> <span
-                                class="value">Yes</span></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <div class="tab-pane" id="edit-profile">
                     <div class="profile-head">
                       <h3>Edit Profile</h3>
                     </div>
-                    <form action="/profile" method="POST" class="edit-profile">
+                    <form action="{{route('updateProfile')}}" method="POST" class="edit-profile">
                       @csrf
-                      {{-- @method('put') --}}
+                      @method('put')
                       <div>
                         <div class="form-group row">
                           <div class="col-12 col-sm-9 col-md-9 col-lg-10 ml-auto">
