@@ -50,10 +50,10 @@ class auth extends Controller
       $user = FacadesAuth::user();
       if ($user->role == 'admin') {
         request()->session()->regenerate();
-        return redirect('/');
+        return redirect('/admin/students');
       } else if ($user->role == 'instructor') {
         request()->session()->regenerate();
-        return redirect('/');
+        return redirect('/instructor/courses');
       } else {
         request()->session()->regenerate();
         return redirect('/');
@@ -98,7 +98,7 @@ class auth extends Controller
     $userM['email'] = $validated_user['email'];
     $userM['phone'] = $validated_user['phone'];
     $userM->save();
-    return redirect('profile');
+    return redirect()->back();
   }
   public function logout()
   {

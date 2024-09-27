@@ -33,6 +33,7 @@
             <div class="col-lg-3 col-md-4 col-sm-12 m-b30">
               <div class="course-detail-bx">
                 <div class="course-buy-now text-center">
+                  <!-- must be edited -->
                   @auth
                     @if ($isEnrollment)
                     <form action="{{route('courseUnEnroll', $course->id)}}" method="POST">

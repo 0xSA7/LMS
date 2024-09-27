@@ -2,17 +2,26 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
-use App\Http\Controllers\Admin\studentController as AdminStudentStudentController;
+use App\Http\Controllers\Admin\InstructorController as AdminInstructorController;
+use App\Http\Controllers\Admin\studentController as AdminStudentController;
 use App\Http\Controllers\auth;
-use App\Http\Controllers\Enrollment\EnrollmentController;
 use App\Http\Controllers\courses\courseController;
-use App\Http\Controllers\Student\studentController as StudentController;
+use App\Http\Controllers\Enrollment\EnrollmentController;
+use App\Http\Controllers\Instructor\CourseController as InstructorCourseController;
 use Illuminate\Support\Facades\Route;
 
 
 // global routes
 Route::get('/', HomeController::class);
 Route::get('/logout', HomeController::class);
+Route::prefix('courses')->group(function () {
+  Route::controller(courseController::class)->name('courses')->group(function () {
+    Route::get('/', 'index')->name('');
+    Route::get('/courseDetails/{id}', 'show')->name('.courseDetails');
+  });
+  Route::post('/courseDetails/{id}', [EnrollmentController::class, 'store'])->name('courseEnroll');
+  Route::delete('/courseDetails/{id}', [EnrollmentController::class, 'destroy'])->name('courseUnEnroll');
+});
 
 
 // auth users routes
@@ -41,50 +50,62 @@ Route::controller(auth::class)->group(function () {
 
 // admin routes
 Route::prefix('admin')->name('admin')->group(function () {
-  Route::controller(AdminStudentStudentController::class)->group(function () {
+  Route::controller(AdminStudentController::class)->group(function () {
     Route::get('/', AdminHomeController::class);
     Route::prefix('/students')->name('.student')->group(function () {
       Route::get('/', 'index');
       Route::delete('/', 'destroy')->where('id', '[0-9]+')->name('.destory');
-      Route::get('/edit/{id}', 'edit')->where('id', '[0-9]+');
+      Route::get('/add', 'add')->name('.add');
+      Route::post('/add', 'store')->name('.store');
+      Route::get('/edit/{id}', 'edit')->where('id', '[0-9]+')->name('.edit');
       Route::put('/edit/{id}', 'update')->where('id', '[0-9]+')->name('.update');
-      Route::get('/show/{id}', 'show')->where('id', '[0-9]+');
+      Route::get('/show/{id}', 'show')->where('id', '[0-9]+')->name('.show');
     });
   });
-});
-
-
-// students routes
-Route::prefix('student')->group(function () {
-  Route::controller(StudentController::class)->group(function () {
-    Route::get('/', );
-    Route::prefix('students')->group(function () {
+  Route::controller(AdminInstructorController::class)->group(function () {
+    Route::prefix('/instructors')->name('.instructor')->group(function () {
       Route::get('/', 'index');
+      Route::delete('/', 'destroy')->where('id', '[0-9]+')->name('.destory');
+      Route::get('/add', 'add')->name('.add');
+      Route::post('/add', 'store')->name('.store');
+      Route::get('/edit/{id}', 'edit')->where('id', '[0-9]+')->name('.edit');
+      Route::put('/edit/{id}', 'update')->where('id', '[0-9]+')->name('.update');
+      Route::get('/show/{id}', 'show')->where('id', '[0-9]+')->name('.show');
     });
   });
 });
 
 
 // instructor routes
-Route::get('createcourse', function () {
-  return view('instructor.create-course');
+Route::prefix('instructor')->name('instructor')->group(function () {
+  Route::prefix('/courses')->name('.course')->controller(InstructorCourseController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::delete('/', 'destroy')->where('id', '[0-9]+')->name('.destory');
+    Route::post('/', 'store')->name('.store');
+    Route::get('/edit/{id}', 'edit')->where('id', '[0-9]+')->name('.edit');
+    Route::put('/edit/{id}', 'update')->where('id', '[0-9]+')->name('.update');
+    Route::get('/show/{id}', 'show')->where('id', '[0-9]+')->name('.show');
+  });
 });
 
 
 // students routes
-Route::prefix('courses')->group(function () {
-  Route::controller(courseController::class)->name('courses')->group(function () {
-    Route::get('/', 'index')->name('');
-    Route::get('/courseDetails/{id}', 'show')->name('.courseDetails');
-  });
-  Route::post('/courseDetails/{id}', [EnrollmentController::class, 'store'])->name('courseEnroll');
-  Route::delete('/courseDetails/{id}', [EnrollmentController::class, 'destroy'])->name('courseUnEnroll');
-});
+// Route::prefix('student')->group(function () {
+//   Route::controller(studentController::class)->group(function () {
+//     Route::get('/', );
+//     Route::prefix('students')->group(function () {
+//       Route::get('/', 'index');
+//     });
+//   });
+// });
+
+
+
 
 // test
-Route::get('/test', function () {
-  $studentsCount = 8;
-  $students = [];
-  return view('auth.forgotpassword');
-  // return view('admin.students', compact('studentsCount', 'students'));
-});
+// Route::get('/test', function () {
+//   $studentsCount = 8;
+//   $students = [];
+//   return view('auth.forgotpassword');
+//   // return view('admin.students', compact('studentsCount', 'students'));
+// });
