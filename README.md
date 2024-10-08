@@ -13,9 +13,10 @@
 <details dir="rtl">
   <summary>
     
-### ال Views (من 10 ل 13 أكتوبر : اليومين الزيادة حل مشاكل integration مع survey و quiz و charts و reports)
+### ال Views (من 10 ل 13 أكتوبر)
   </summary>
 
+اليومين الزيادة حل مشاكل integration مع survey و quiz و charts و reports
 - [ ] للموقع ك guest و طالب و محفظ
 - [ ] ال admin ليه dashboard
 - [ ] المحفظ ليه dashboard
@@ -53,10 +54,10 @@
 <details dir="rtl">
   <summary>
     
-### ال Functionalities
+### ال Functionalities (من 11 ل 13 أكتوبر)
   </summary>
 
-لحد يوم 13 (يوم خناق و يومين شغل بكفاءة)
+يوم خناق و يومين شغل بكفاءة
 - [ ] و ال attachments اللى ممكن يبعتها المحفظ هيكون فيها لينك ال zoom
 - [ ] ال student يطلب يدخل الكورس و الشيخ ليه الحق ف ال approve او لا
 - [ ] التقارير الشهرية و استخدام ال charts لمتابعة مستوى الطالب يظهر للطالب و المحفظ
