@@ -13,9 +13,9 @@ class HomeController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function __invoke(): View
+  public function __invoke()
   {
-    $courses = Course::all();
-    return view('index', compact('courses'));
+
+    return 'home';
   }
 }

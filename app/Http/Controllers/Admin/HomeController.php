@@ -13,8 +13,8 @@ class HomeController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function __invoke(): View
+  public function __invoke()
   {
-    return view('admin.home');
+    return "Admin Home";
   }
 }

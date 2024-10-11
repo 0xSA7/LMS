@@ -13,15 +13,15 @@ class auth extends Controller
 {
   public function showLoginForm()
   {
-    return view('auth.login');
+    return view('welcome');
   }
   public function showRegisterForm()
   {
-    return view('auth.register');
+    return view('register');
   }
   public function showForgotPassForm()
   {
-    return view('auth.forgotpassword');
+    return 'forgot password page ';
   }
   public function store()
   {

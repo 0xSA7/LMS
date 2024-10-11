@@ -8,15 +8,15 @@ use App\Http\Controllers\auth;
 use App\Http\Controllers\courses\courseController;
 use App\Http\Controllers\Enrollment\EnrollmentController;
 use App\Http\Controllers\Instructor\CourseController as InstructorCourseController;
+use App\Http\Middleware\AdminPolicy ;
 use Illuminate\Support\Facades\Route;
+
 
 
 // global routes
 Route::get('/', HomeController::class);
 Route::get('/logout', HomeController::class);
-Route::get('/dashboard', function () {
-  return view('layouts.dashboard');
-});
+
 Route::prefix('courses')->group(function () {
   Route::controller(courseController::class)->name('courses')->group(function () {
     Route::get('/', 'index')->name('');
@@ -53,8 +53,8 @@ Route::controller(auth::class)->group(function () {
 
 // admin routes
 Route::prefix('admin')->name('admin')->group(function () {
+  Route::get('/', AdminHomeController::class);
   Route::controller(AdminStudentController::class)->group(function () {
-    Route::get('/', AdminHomeController::class);
     Route::prefix('/students')->name('.student')->group(function () {
       Route::get('/', 'index');
       Route::delete('/', 'destroy')->where('id', '[0-9]+')->name('.destory');
@@ -76,7 +76,7 @@ Route::prefix('admin')->name('admin')->group(function () {
       Route::get('/show/{id}', 'show')->where('id', '[0-9]+')->name('.show');
     });
   });
-});
+})->middleware(AdminPolicy::class.':admin');
 
 
 // instructor routes
@@ -92,23 +92,3 @@ Route::prefix('instructor')->name('instructor')->group(function () {
 });
 
 
-// students routes
-// Route::prefix('student')->group(function () {
-//   Route::controller(studentController::class)->group(function () {
-//     Route::get('/', );
-//     Route::prefix('students')->group(function () {
-//       Route::get('/', 'index');
-//     });
-//   });
-// });
-
-
-
-
-// test
-// Route::get('/test', function () {
-//   $studentsCount = 8;
-//   $students = [];
-//   return view('auth.forgotpassword');
-//   // return view('admin.students', compact('studentsCount', 'students'));
-// });
